@@ -43,3 +43,47 @@
 **💡 Notes:**  
 Only available in **Excel Online** and works on **tables**. Uses standard Excel formulas for compatibility.  
 **✅ Formula by Example = Flash Fill + Automation.**
+
+
+## 🔠 Column from Examples — Power Query Quick Notes
+
+**Column from Examples** is an AI-assisted feature in **Power Query** that lets Excel automatically write **M code** (Power Query formulas) based on the examples you provide.  
+It’s similar to *Flash Fill*, but much more powerful — it generates reusable code that updates when your data changes.
+
+### ⚙️ How It Works
+1. Load your data into **Power Query** (`Data → From Table/Range`).
+2. Go to **Add Column → Column from Examples** → choose *From All Columns* or *From Selection*.
+3. Type 1–2 example results — Power Query detects the pattern and writes the code.
+4. Click **OK** to apply and create a new calculated column.
+
+---
+
+### 🧠 Example 1 – Format Names
+**Goal:** Convert `"Anders, Maria"` → `"M Anders"`  
+- Type `M Anders` and `A Hello` for next rows.  
+- Power Query writes the formula using:  
+  `Text.Combine` + `Text.BeforeDelimiter` + `Text.AfterDelimiter`  
+- Result: Creates new “Student Name” column automatically.
+
+---
+
+### 🧮 Example 2 – Categorize Scores
+**Goal:** Convert numeric scores into grades.  
+- Example logic:  
+  - ≥ 90 → Distinction  
+  - ≥ 80 → Merit  
+  - ≥ 65 → Pass  
+  - Else → Fail  
+- Column from Examples writes a **nested IF structure** automatically in M code.  
+- You can then tweak thresholds or rename the column (e.g., `Grade`).
+
+---
+
+### 💡 Notes
+- Works inside **Power Query**, not the main Excel grid.  
+- Creates **M code**, not formulas — great for automation and data transformation.  
+- Excellent for users new to Power Query who want Excel to **auto-write logic**.  
+- Helps connect and transform **external data sources** before loading back to Excel.
+
+**✅ Column from Examples = Flash Fill + Formula by Example + Power Query Automation.**
+
